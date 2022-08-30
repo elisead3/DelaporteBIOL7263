@@ -1,2 +1,3 @@
 # BIOL7263 Portfolio
-[Assignment 1](Assignments/Assignment1.Rmd)
+[Assignment 1](Assignments/Assignment1.html)
+
