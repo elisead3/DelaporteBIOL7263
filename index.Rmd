@@ -1,3 +1,3 @@
 # BIOL7263 Portfolio
-[Assignment 1](https://elisead3.github.io/DelaporteBIOL7263/Assignments/Assignment1.html)
 
+[Assignment 1](Assignments/Assignment1.html)
