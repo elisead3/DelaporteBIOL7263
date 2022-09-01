@@ -1,3 +1,22 @@
-# BIOL7263 Portfolio
+---
+title: BIOL7263 Portfolio
+author: Elise Delaporte
+date: August 29th, 2022
+output: 
+  html_document:
+  theme: cerulean
+  highlight: tango
+---
+
+### Educational Experience
+
+
+
+### Research Background
+
+[Research Advisor's Website](https://scholar.google.com/citations?user=BwpdOWQAAAAJ&hl=en)
+
+
+### Assignments
 
 [Assignment 1](Assignments/Assignment1.html)
