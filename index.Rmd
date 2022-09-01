@@ -5,7 +5,6 @@ date: August 29th, 2022
 output: 
   html_document:
   theme: cerulean
-  highlight: tango
 ---
 
 ### Educational Experience
