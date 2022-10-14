@@ -144,11 +144,11 @@ ENDSEQUENCE \
 }' > ribosomes.txt
 ```
 
-First, we inserted a marker called "ENDSEQUENCE" as a new line above each line containing the > bracket in the protein.faa file. \
+First, we inserted a temporary marker called "ENDSEQUENCE" as a new line above each line containing the > bracket in the protein.faa file. This marker will allow us to select the information before it without consuming other lines of text that must be searched.\
 
-(This is my brother's explanation of why we are adding a marker here): This is necessary because when matching a range in sed, it consumes all the lines in the range. So without adding the ENDSEQUENCE line, there are cases where we would have back-to-back ribosomal proteins and the match on the first protein consumes the first line of the next protein, which means sed would not match the next protein properly. As a result, it provides the first line with this protein's name without printing any of the protein sequence underneath. \
+(This is my brother's more detailed explanation of why we are adding a marker here): This is necessary because when matching a range in sed, it consumes all the lines in the range. So without adding the ENDSEQUENCE line, there are cases where we would have back-to-back ribosomal proteins and the match on the first protein consumes the first line of the next protein, which means sed would not match the next protein properly. As a result, it provides the first line with this protein's name without printing any of the protein sequence underneath. \
 
-(Back to my explanation) Then, we selected each section of lines where the first line contains "ribosom" and the last line contains "ENDSEQUENCE". We fed that into a command that prints the line as long as the line doesn't contain ENDSEQUENCE. The ENDSEQUENCE line is not printed to the file and therefore our temporary marker is removed. \
+(Returning to my explanation-) Then, we selected each section of lines where the first line contains "ribosom" and the last line contains "ENDSEQUENCE". We fed that into a command that prints the line as long as the line doesn't contain ENDSEQUENCE. The ENDSEQUENCE line is not printed to the file and therefore our temporary marker is removed. \
 
 Result:\
 ```
@@ -161,7 +161,6 @@ MRAKWRKKRMRRLKRKRRKMRQRSK
 >NP_001116826.1 ubiquitin-60S ribosomal protein L40 precursor [Felis catus]
 MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGGIIEP
 SLRQLAQKYNCDKMICRKCYARLHPRAVNCRKKKCGHTNNLRPKKKVK
->NP_001122313.1 60S ribosomal protein L24 [Felis catus]
 ```
 
 
