@@ -1,0 +1,168 @@
+---
+title: "Assignment 3"
+output: html_document
+date: "2022-10-13"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\
+
+#### Question 1
+I searched for 
+``` \s{2,} ``` to select any spot where there were two or more spaces and then replaced them with a comma followed by a space. 
+
+Then, I searched for ```(?<=\d),(?=\d)``` to find all commas squished between two numbers, and replaced them with nothing. 
+
+Text produced:\
+Candidate Choice, Absentee Mail, Early Voting, Election Day, Total Votes\
+TODD RUSS, 7021, 8194, 135216, 150431\
+CLARK JOLLEY, 7012, 5835, 107714, 120561\
+
+\
+
+#### Question 2
+I used ```\s{2,}``` to find all spots where number of spaces was greater than 2 and replaced them with one space. 
+
+Then I used ```\s\w{1}.\s``` to find any single letters after a space and before a period and another space. These are the initials. I replaced each one with a space. 
+
+Then I captured first name, last name, and email using this command: ``` (\w+), (\w+) (\w+@\w+.\w+)```
+Each capture contains a word with a variable number of letters. These words are separated by a comma, which I did not capture. For the email addresses, I included the at sign and period. as part of the capture. 
+Then I replaced with this command: ```\2 \1 (\3)```
+This takes the second element I captured and pastes it before the first element that I captured, and puts parentheses around the third element. 
+
+Text produced: \
+Emily Adamic (ema3896@utulsa.edu) \
+Emily Bierbaum (elb0588@utulsa.edu) \
+Laci Cartmell (ljc454@utulsa.edu) \
+Elise Delaporte (eld0070@utulsa.edu) \
+Rebekah Hansen (reh9623@utulsa.edu) \
+Madison Herrboldt (mah1626@utulsa.edu) \
+Cari Lewis (cdl5261@utulsa.edu) \
+Tanner Mierow (ttm5619@utulsa.edu) \
+Daniel Naranjo (dsn8679@utulsa.edu) \
+Caleb Paslay (cap1050@utulsa.edu) \
+Olivia Pletcher (omp9336@utulsa.edu) \
+Amy West (acw1471@utulsa.edu) \
+
+\
+
+#### Question 3
+
+I used this command ```, \w+ \w+,``` to select the genus species name. This selected the two words of variable length following the space and comma and before another comma. Then I replaced this with a new comma. \
+
+Text produced: \
+Banded sculpin, 5 \
+Redspot chub, 5 \
+Northern hog sucker, 6 \
+Creek chub, 8 \
+Stippled darter, 9 \
+Smallmouth bass, 10 \
+Logperch, 13 \
+Slender madtom, 14 \
+
+\
+
+#### Question 4
+
+I searched for
+```, (\w)\w+ (\w+)```
+This captured the first letter of the word (genus) after the first comma and space, ignored the rest of the word, and captured the species name after the space. \
+
+I replaced this with  ```, \1_\2```
+This replaced it with a new comma followed by a space, pasted the captured first letter, added an underscore, and pasted the captured species name. \
+
+Text produced: \
+Banded sculpin, C_carolinae, 5 \
+Redspot chub, N_asper, 5 \
+Northern hog sucker, H_nigricans, 6 \
+Creek chub, S_atromaculatus, 8 \
+Stippled darter, E_punctulatum, 9 \
+Smallmouth bass, M_dolomieu, 10 \
+Logperch, P_caprodes, 13 \
+Slender madtom, N_exilis, 14 \
+
+\
+
+#### Question 5
+
+I searched for ```, (\w)\w+ (\w{3})\w+```
+This captured the first letter of the genus name after the first comma and space, ignored the rest of the word, captured the first three letters of the species name and ignored the rest of that word. 
+
+Then I replaced with 
+```, \1_\2.```
+This replaced it with a new comma, pasted the captured first letter of the genus, added an underscore, pasted the captured first three letters of species, and added new period after the three letters. 
+\
+
+Text produced:\
+Banded sculpin, C_car., 5\
+Redspot chub, N_asp., 5\
+Northern hog sucker, H_nig., 6\
+Creek chub, S_atr., 8\
+Stippled darter, E_pun., 9\
+Smallmouth bass, M_dol., 10\
+Logperch, P_cap., 13\
+Slender madtom, N_exi., 14\
+\
+
+
+
+#### Question 6
+
+I used the command ```grep '^>' protein.faa > headers.txt``` to create a document containing only the FASTA headers. 
+
+grep searches the text for the regular expression. The regular expression is inside of the '' marks, and the ^ symbol tells the terminal to check the beginning of each line in the indicated file for the > symbol. We can then use ```> headers.txt``` to create a new text file name headers which will display each line that starts with >. 
+Lastly, we can then use the command ```head headers.txt``` to see the start of the new text file.
+
+\
+Result:\
+```
+>NP_001009188.1 carboxylesterase 5A precursor [Felis catus]\
+>NP_001009190.1 agouti-signaling protein precursor [Felis catus]\
+>NP_001009193.1 interferon alpha-8 precursor [Felis catus]\
+>NP_001009197.2 interferon alpha precursor [Felis catus]\
+>NP_001009199.1 growth arrest and DNA damage-inducible protein GADD45 alpha [Felis catus]\
+>NP_001009200.1 tumor necrosis factor receptor superfamily member 4 precursor [Felis catus]\
+>NP_001009203.1 acetylcholinesterase precursor [Felis catus]\
+>NP_001009205.1 low affinity immunoglobulin gamma Fc region receptor III-A precursor [Felis catus]\
+>NP_001009206.1 potassium voltage-gated channel subfamily E member 1 [Felis catus]\
+>NP_001009207.1 interleukin-15 precursor [Felis catus]\
+```
+
+\
+
+#### Question 7 
+
+
+```
+sed '/>/ i\
+ENDSEQUENCE \
+' ./protein.faa | sed -n '/ribosom/,/ENDSEQUENCE/ {
+ 	/ENDSEQUENCE/! p
+}' > ribosomes.txt
+```
+
+First, we inserted a marker called "ENDSEQUENCE" as a new line above each line containing the > bracket in the protein.faa file. \
+
+(This is my brother's explanation of why we are adding a marker here): This is necessary because when matching a range in sed, it consumes all the lines in the range. So without adding the ENDSEQUENCE line, there are cases where we would have back-to-back ribosomal proteins and the match on the first protein consumes the first line of the next protein, which means sed would not match the next protein properly. As a result, it provides the first line with this protein's name without printing any of the protein sequence underneath. \
+
+(Back to my explanation) Then, we selected each section of lines where the first line contains "ribosom" and the last line contains "ENDSEQUENCE". We fed that into a command that prints the line as long as the line doesn't contain ENDSEQUENCE. The ENDSEQUENCE line is not printed to the file and therefore our temporary marker is removed. \
+
+Result:\
+```
+>NP_001009832.1 40S ribosomal protein S7 [Felis catus]
+MFSSSAKIVKPNGEKPDEFESGISQALLELEMNSDLKAQLRELNITAAKEIEVGGGRKAIIIFVPVPQLKSFQKIQVRLV
+RELEKKFSGKHVVFIAQRRILPKPTRKSRTKNKQKRPRSRTLTAVHDAILEDLVFPSEIVGKRIRVKLDGSRLIKVHLDK
+AQQNNVEHKVETFSGVYKKLTGKDVNFEFPEFQL
+>NP_001041622.1 60S ribosomal protein L41 [Felis catus]
+MRAKWRKKRMRRLKRKRRKMRQRSK
+>NP_001116826.1 ubiquitin-60S ribosomal protein L40 precursor [Felis catus]
+MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGGIIEP
+SLRQLAQKYNCDKMICRKCYARLHPRAVNCRKKKCGHTNNLRPKKKVK
+>NP_001122313.1 60S ribosomal protein L24 [Felis catus]
+```
+
+
+
