@@ -368,6 +368,11 @@ pre code {
 </div>
 
 
+<div id="download-files" class="section level2">
+<h2>Download Files</h2>
+<p><a href="data_example.csv">First Data Example</a><br />
+<a href="data_example_2.csv">Second Data Example</a></p>
+</div>
 <div id="purpose-of-an-r-package" class="section level2">
 <h2>Purpose of an R Package</h2>
 <p>If you are repeatedly performing the same type of analysis on data
@@ -385,18 +390,17 @@ functions among multiple .R files (for organizational purposes).</p>
 <div id="creating-the-.r-function-files" class="section level2">
 <h2>Creating the .R Function Files</h2>
 <p>Let’s create our package.</p>
-<p>First, create a new R project for your package, inside of its own
-folder. Directories can get confusing when creating a package!</p>
-<p>I am creating a folder called “RPackagePractice” and then creating a
-project called “new_package” instead of it.</p>
-<p>We will use an example dataset to test our project. Please download
-data_example.csv and place it into your RPackagePractice folder.</p>
+<p>First, create a new folder for your package. Directories can get
+confusing when creating a package!</p>
+<p>I am creating a folder called “RPackagePractice”.</p>
+<p>We will use two example datasets to test our project. Please download
+data_example.csv and data_example_2.csv and place them into your
+RPackagePractice folder.</p>
 <p>Then, we will create an R script inside RPackagePractice called
 “lesson_script” and add the following code:</p>
 <pre><code>
 install.packages(c(&quot;devtools&quot;, &quot;roxygen2&quot;))
 library(&quot;devtools&quot;) #for &#39;create&#39; function
-library(&quot;roxygen2&quot;)
 
 #pause here to make sure your working directory is set to your packages project folder. It&#39;s important to have the correct working directory before the next step!
 
@@ -408,8 +412,10 @@ the following code to create the function for this package:</p>
 <pre><code>#&#39; Add First Order and Second Order Columns
 #&#39;
 #&#39; Takes absorbance or concentration data for a reaction and finds the first order and second order values so that all possible order plots can be graphed later
+#&#39; @name all_orders
 #&#39; @param dataset The dataset for which we are converting, generally containing a Time and Absorbance column
 #&#39; @return A new table with the following columns: Time, zero_order, first_order, second_order
+#&#39; @examples all_orders(dataset)
 
 library(&quot;dplyr&quot;) #to allow us to use the &#39;mutate&#39; and &#39;rename&#39; functions
 
@@ -428,7 +434,7 @@ following code to it:</p>
 <pre><code>#&#39; Create Zero Order, First Order, and Second Order Plots
 #&#39;
 #&#39; Uses the available data to create plots for each rate law order. Useful for checking to see which plot is most linear in order to determine the order of the reaction with respect to that reactant.
-#&#39; @name rateLawOrders
+#&#39; @name plot_orders
 #&#39; @param dataset The dataset for which we are converting, which should already have columns added for the first order and second order data.
 #&#39; @return Three plots, one for a zero orderreaction , one for first order, and one for second order.
 #&#39; @examples plot_orders(dataset_here)
@@ -473,14 +479,17 @@ need. Feel free to edit in your own name and email here!</p>
 <pre><code>Package: rateLawOrders
 Title: Create zero order, first order, and second plots based on absorbance data
 Version: 0.0.0.9000
-Authors@R: person(&quot;Elise&quot;, &quot;Delaporte&quot;, &quot;elisead@utulsa.edu&quot;, role = c(&quot;aut&quot;, &quot;cre&quot;))
+Authors@R: person(&quot;Elise&quot;, &quot;Delaporte&quot;, email = &quot;elisead@utulsa.edu&quot;, role = &quot;cre&quot;)
 Description: Takes absorbance and time data for a reaction and finds the first order and second order values. Then creates the zero order, first order, and second order plots. 
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.2</code></pre>
+RoxygenNote: 7.2.2
+License: use_mit_license()
+</code></pre>
 <p>Now go back to “lesson_script.R” and run the following bit of
 code:</p>
-<pre><code>document() #creates your package&#39;s documentation
+<pre><code>library(&quot;roxygen2&quot;) #for &#39;document&#39; and &#39;check&#39; functions
+document() #creates your package&#39;s documentation
 check() #checks package for errors</code></pre>
 <p>Now to test the package. Set the working directory back to
 “RPackagePractice” and create an R script titled testingourpackage. Add
@@ -488,21 +497,31 @@ the following code to it:</p>
 <pre><code>library(&quot;tidyverse&quot;) #to allow us to use the &#39;read_csv&#39; function
 
 dataset1 &lt;-read_csv(&quot;data_example.csv&quot;)
+dataset2 &lt;-read_csv(&quot;data_example_2.csv&quot;)
 
 glimpse(dataset1)
+glimpse(dataset2)
 
-library(&quot;devtools&quot;) #for &#39;install&#39; function
-library(&quot;roxygen2&quot;) #for &#39;document&#39; and &#39;check&#39; functions
+library(&quot;devtools&quot;) #for &#39;install&#39; and &#39;load_all&#39; function
 
-# set working directory to RPackagePractice
+# set working directory back to RPackagePractice
 # because you can&#39;t install a package from inside of itself
 # which I found out the hard way
 
 install(&quot;rateLawOrders&quot;)
+search() #to see that our package is installed
 load_all(&quot;rateLawOrders&quot;)
 
+# let&#39;s check that our documentation for each function worked
+?all_orders 
+?plot_orders
+
 dataset1_orders &lt;- all_orders(dataset1)
-plot_orders(dataset1_orders)</code></pre>
+plot_orders(dataset1_orders)
+
+dataset2_orders &lt;- all_orders(dataset2)
+plot_orders(dataset2_orders)
+</code></pre>
 </div>
 <div id="interesting-in-depth-resources" class="section level2">
 <h2>Interesting In-Depth Resources</h2>
@@ -519,21 +538,22 @@ to use your package and how)</p>
 <h2>Lesson/Practice</h2>
 <ol style="list-style-type: decimal">
 <li>Create your own package from scratch using the process shown here.
-Add comments to every line of code that you use to show that you know
-what it does.</li>
+You can create any type of function to put in it. Add comments to each
+line of code that you use to show that you know what it does.</li>
 <li>Don’t forget to edit the DESCRIPTION file and use the document()
-function to create documentation</li>
+function to create documentation.</li>
 <li>Create a separate script file to test your package and check its
-documentation</li>
+documentation.</li>
 </ol>
 </div>
 <div id="referencesadditional-resources" class="section level2">
 <h2>References/Additional Resources</h2>
 <p><a href="http://swcarpentry.github.io/r-novice-inflammation/08-making-packages-R/index.html">Lesson
-on Creating R Packages</a> - Referenced to create this lesson</p>
+on Creating R Packages</a> - Short tutorial on creating a package.
+Referenced to create this lesson</p>
 <p><a href="https://r-pkgs.org/metadata.html#sec-description">Book on
 Creating R Packages</a> - More in-depth information on the process of
-creating an R package</p>
+creating an R package. Also referenced to create this lesson</p>
 </div>
 
 

@@ -4,6 +4,11 @@ output: html_document
 date: "2022-11-26"
 ---
 
+## Download Files
+
+[First Data Example](data_example.csv)  
+[Second Data Example](data_example_2.csv)  
+
 ## Purpose of an R Package
 
 If you are repeatedly performing the same type of analysis on data that you collected, you may find it helpful to create your own R package that will allow you to use the same collection of R functions over and over for your analysis.
