@@ -39,7 +39,8 @@ Then, we will create an R script inside RPackagePractice called “lesson_script
 
 ```
 install.packages(c("devtools", "roxygen2"))
-library("devtools") #for 'create' function
+library("devtools") # for 'create_package' function now, and other functions later
+library("roxygen2") # automatically generates some of the package documentation for you
 
 #pause here to make sure your working directory is set to your packages project folder. It's important to have the correct working directory before the next step!
 
@@ -133,9 +134,9 @@ License: use_mit_license()
 Now go back to "lesson_script.R" and run the following bit of code:
 
 ```
-library("roxygen2") #for 'document' and 'check' functions
-document() #creates your package's documentation
-check() #checks package for errors
+# these following functions must be run while your working directory is set to the package folder (i.e. rateLawOrders in this case)
+document() # from devtools package, updates the package's documentation
+check() # from devtools package, checks package for errors
 ```
 
 Now to test the package. Set the working directory back to “RPackagePractice” and create an R script titled testingourpackage. Add the following code to it:
@@ -149,7 +150,7 @@ dataset2 <-read_csv("data_example_2.csv")
 glimpse(dataset1)
 glimpse(dataset2)
 
-library("devtools") #for 'install' and 'load_all' functions
+library("devtools") # for 'install' and 'load_all' functions
 
 # set working directory back to RPackagePractice
 # because you can't install a package from inside of itself
