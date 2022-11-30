@@ -7,7 +7,9 @@ date: "2022-11-26"
 ## Download Files
 
 [First Data Example](data_example.csv)  
-[Second Data Example](data_example_2.csv)  
+[Second Data Example](data_example_2.csv)
+
+Download these files and place them into a new folder titled "RPackagePractice". 
 
 ## Purpose of an R Package
 
@@ -15,7 +17,12 @@ If you are repeatedly performing the same type of analysis on data that you coll
 
 The functions that you create to store in the package are the code that you plan to use repeatedly. After loading your package, you will be able to call any functions that you need to use for your analysis and use them with your data. 
 
-Your package will have at least one file with the extension .R which will contain the package's functions. If you want, you can divide the functions among multiple .R files (for organizational purposes).  
+Your package will have at least one file with the extension .R which will contain the package's functions. Usually, you will divide the functions among multiple .R files, with each function having its own R script file. This allows you to document each function individually. 
+
+
+## Diagram of Directories
+
+![](directory_diagram.png)
 
 
 ## Creating the .R Function Files
@@ -31,7 +38,6 @@ We will use two example datasets to test our project. Please download data_examp
 Then, we will create an R script inside RPackagePractice called “lesson_script” and add the following code:
 
 ```
-
 install.packages(c("devtools", "roxygen2"))
 library("devtools") #for 'create' function
 
@@ -48,7 +54,7 @@ Then go into the folder named R and create an R script called “orders_script�
 #'
 #' Takes absorbance or concentration data for a reaction and finds the first order and second order values so that all possible order plots can be graphed later
 #' @name all_orders
-#' @param dataset The dataset for which we are converting, generally containing a Time and Absorbance column
+#' @param dataset The dataset for which we are converting, containing a Time and Absorbance column
 #' @return A new table with the following columns: Time, zero_order, first_order, second_order
 #' @examples all_orders(dataset)
 
@@ -60,7 +66,6 @@ all_orders <- function(dataset) {
           second_order = 1/Absorbance
   ) %>%
     rename (zero_order = Absorbance)
-
 }
 ```
 
@@ -71,7 +76,7 @@ So that's one of our functions. Now let's add another which will plot the data f
 #'
 #' Uses the available data to create plots for each rate law order. Useful for checking to see which plot is most linear in order to determine the order of the reaction with respect to that reactant.
 #' @name plot_orders
-#' @param dataset The dataset for which we are converting, which should already have columns added for the first order and second order data.
+#' @param dataset The dataset for which we are converting, which should already have columns added for the first order and second order data. The expected columns are Time, zero_order, first_order, and second_order. 
 #' @return Three plots, one for a zero orderreaction , one for first order, and one for second order.
 #' @examples plot_orders(dataset_here)
 
@@ -105,11 +110,11 @@ The description follows the following basic format:
 Package: Name of the package goes here. This should contain only letters and numbers.  
 Title: One line description of the package  
 Description: More detailed paragraph description of the package  
-Version: Current version of the package  
-Author: Name and email of author  
-Maintainer: Name and email of who to contact with issues, if applicable  
+Version: Current version of the package. For a package in development, we use 
+"0.0.0.9000".  
+Authors@R: Name and email of authors involved in creating the package, using the following code: person("first name", "last name", email = "email", role ="role"). There should be at least one person with the role of "cre" - this is the "maintainer" of the package, and the person that should be contacted if there are any issues encountered while using the package. 
 License: Type of license, usually open source, which specifies how your package can be used. Not necessary if you don't plan to share your package with others  
-We will put in the following details, skipping some fields that we don't need. Feel free to edit in your own name and email here!
+Here's a description that you can paste into the file for this package: 
 
 ```
 Package: rateLawOrders
@@ -143,7 +148,7 @@ dataset2 <-read_csv("data_example_2.csv")
 glimpse(dataset1)
 glimpse(dataset2)
 
-library("devtools") #for 'install' and 'load_all' function
+library("devtools") #for 'install' and 'load_all' functions
 
 # set working directory back to RPackagePractice
 # because you can't install a package from inside of itself
@@ -181,6 +186,8 @@ We won't be covering these in detail, but these topics are helpful if you plan t
 
 ## References/Additional Resources
 
-[Lesson on Creating R Packages](http://swcarpentry.github.io/r-novice-inflammation/08-making-packages-R/index.html) - Short tutorial on creating a package. Referenced to create this lesson
+[Lesson on Creating R Packages](http://swcarpentry.github.io/r-novice-inflammation/08-making-packages-R/index.html) - Short tutorial on creating a package. Referenced to create this lesson  
 
-[Book on Creating R Packages](https://r-pkgs.org/metadata.html#sec-description) - More in-depth information on the process of creating an R package. Also referenced to create this lesson
+[Book on Creating R Packages](https://r-pkgs.org/metadata.html#sec-description) - More in-depth information on the process of creating an R package. Also referenced to create this lesson  
+
+
