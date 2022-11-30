@@ -479,11 +479,11 @@ of authors involved in creating the package, using the following code:
 person(“first name”, “last name”, email = “email”, role =“role”). There
 should be at least one person with the role of “cre” - this is the
 “maintainer” of the package, and the person that should be contacted if
-there are any issues encountered while using the package. License: Type
-of license, usually open source, which specifies how your package can be
-used. Not necessary if you don’t plan to share your package with
-others<br />
-Here’s a description that you can paste into the file for this
+there are any issues encountered while using the package.<br />
+License: Type of license, usually open source, which specifies how your
+package can be used. Not necessary if you don’t plan to share your
+package with others</p>
+<p>Here’s a description that you can paste into the file for this
 package:</p>
 <pre><code>Package: rateLawOrders
 Title: Create zero order, first order, and second plots based on absorbance data
@@ -531,6 +531,13 @@ plot_orders(dataset1_orders)
 dataset2_orders &lt;- all_orders(dataset2)
 plot_orders(dataset2_orders)
 </code></pre>
+<p>To load your package later on during a different R session, you
+should be able to use the following code. Note that you need a copy of
+your package folder in your current working directory in order to use
+the package.</p>
+<pre><code>library(&quot;devtools&quot;)
+
+load_all(&quot;rateLawOrders&quot;)</code></pre>
 </div>
 <div id="interesting-in-depth-resources" class="section level2">
 <h2>Interesting In-Depth Resources</h2>
