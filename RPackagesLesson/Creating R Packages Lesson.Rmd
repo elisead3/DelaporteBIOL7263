@@ -172,6 +172,8 @@ plot_orders(dataset2_orders)
 
 ```
 
+To see a quick example of how messy it would have been to do this graphing in Excel, [download this!](example rate law data.xlsx)
+
 To load your package later on during a different R session, you should be able to use the following code. Note that you need a copy of your package folder in your current working directory in order to use the package or else you must specify the file path (ex. Documents/BIOL7263/rateLawOrders). 
 
 ```
