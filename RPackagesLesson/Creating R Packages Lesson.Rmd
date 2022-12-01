@@ -180,6 +180,14 @@ library("devtools")
 load_all("rateLawOrders")
 ```
 
+To share your package with others (without officially publishing it), you can upload the package folder into a git repository and then instruct others to use the following code to install:
+
+```
+library("devtools")
+
+install_github("yourusername/myfirstpackage")
+```
+
 
 ## Interesting In-Depth Resources 
 
