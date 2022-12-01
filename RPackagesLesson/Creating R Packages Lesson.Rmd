@@ -75,7 +75,7 @@ So that's one of our functions. Now let's add another which will plot the data f
 ```
 #' Create Zero Order, First Order, and Second Order Plots
 #'
-#' Uses the available data to create plots for each rate law order. Useful for checking to see which plot is most linear in order to determine the order of the reaction with respect to that reactant.
+#' Uses the dataset to create plots for each rate law order. Useful for checking to see which plot is most linear in order to determine the order of the reaction with respect to that reactant.
 #' @name plot_orders
 #' @param The dataset for which we are converting, which should already have columns added for the first order and second order data. The expected column labels are Time, zero_order, first_order, and second_order. 
 #' @return Three plots, one for a zero order reaction, one for first order, and one for second order.
@@ -113,8 +113,8 @@ Title: One line description of the package
 Description: More detailed paragraph description of the package  
 Version: Current version of the package. For a package in development, we use 
 "0.0.0.9000".  
-Authors@R: Name and email of authors involved in creating the package, using the following code: person("first name", "last name", email = "email", role ="role"). There should be at least one person with the role of "cre" - this is the "maintainer" of the package, and the person that should be contacted if there are any issues encountered while using the package.  
-License: Type of license, usually open source, which specifies how your package can be used. Not necessary if you don't plan to share your package with others  
+Authors@R: Name and email of authors involved in creating the package, using the following code: person("first name", "last name", email = "email", role ="role"). There should be at least one person with the role of "cre" - this is the "maintainer" of the package, and they are the person that should be contacted if there are any issues encountered while using the package.  
+License: Type of license which specifies how your package can be used. Not necessary if you don't plan to share your package with others  
 
 Here's a description that you can paste into the file for this package: 
 
@@ -172,7 +172,7 @@ plot_orders(dataset2_orders)
 
 ```
 
-To load your package later on during a different R session, you should be able to use the following code. Note that you need a copy of your package folder in your current working directory in order to use the package. 
+To load your package later on during a different R session, you should be able to use the following code. Note that you need a copy of your package folder in your current working directory in order to use the package or else you must specify the file path (ex. Documents/BIOL7263/rateLawOrders). 
 
 ```
 library("devtools")
@@ -208,5 +208,6 @@ We won't be covering these in detail, but these topics are helpful if you plan t
 [Lesson on Creating R Packages](http://swcarpentry.github.io/r-novice-inflammation/08-making-packages-R/index.html) - Short tutorial on creating a package. Referenced to create this lesson  
 
 [Book on Creating R Packages](https://r-pkgs.org/metadata.html#sec-description) - More in-depth information on the process of creating an R package. Also referenced to create this lesson  
+
 
 

@@ -439,7 +439,7 @@ into a separate R script file called “graphing_script”. Add the
 following code to it:</p>
 <pre><code>#&#39; Create Zero Order, First Order, and Second Order Plots
 #&#39;
-#&#39; Uses the available data to create plots for each rate law order. Useful for checking to see which plot is most linear in order to determine the order of the reaction with respect to that reactant.
+#&#39; Uses the dataset to create plots for each rate law order. Useful for checking to see which plot is most linear in order to determine the order of the reaction with respect to that reactant.
 #&#39; @name plot_orders
 #&#39; @param The dataset for which we are converting, which should already have columns added for the first order and second order data. The expected column labels are Time, zero_order, first_order, and second_order. 
 #&#39; @return Three plots, one for a zero order reaction, one for first order, and one for second order.
@@ -479,11 +479,11 @@ we use “0.0.0.9000”.<br />
 of authors involved in creating the package, using the following code:
 person(“first name”, “last name”, email = “email”, role =“role”). There
 should be at least one person with the role of “cre” - this is the
-“maintainer” of the package, and the person that should be contacted if
-there are any issues encountered while using the package.<br />
-License: Type of license, usually open source, which specifies how your
-package can be used. Not necessary if you don’t plan to share your
-package with others</p>
+“maintainer” of the package, and they are the person that should be
+contacted if there are any issues encountered while using the
+package.<br />
+License: Type of license which specifies how your package can be used.
+Not necessary if you don’t plan to share your package with others</p>
 <p>Here’s a description that you can paste into the file for this
 package:</p>
 <pre><code>Package: rateLawOrders
@@ -535,7 +535,8 @@ plot_orders(dataset2_orders)
 <p>To load your package later on during a different R session, you
 should be able to use the following code. Note that you need a copy of
 your package folder in your current working directory in order to use
-the package.</p>
+the package or else you must specify the file path (ex.
+Documents/BIOL7263/rateLawOrders).</p>
 <pre><code>library(&quot;devtools&quot;)
 
 load_all(&quot;rateLawOrders&quot;)</code></pre>
