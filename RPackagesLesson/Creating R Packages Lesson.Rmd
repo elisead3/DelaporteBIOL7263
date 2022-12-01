@@ -55,7 +55,7 @@ Then go into the folder named R and create an R script called â€œorders_scriptâ€
 #'
 #' Takes absorbance or concentration data for a reaction and finds the first order and second order values so that all possible order plots can be graphed later
 #' @name all_orders
-#' @param dataset The dataset for which we are converting, containing a Time and Absorbance column
+#' @param The dataset for which we are converting, containing a Time and Absorbance column
 #' @return A new table with the following columns: Time, zero_order, first_order, second_order
 #' @examples all_orders(dataset)
 
@@ -77,9 +77,9 @@ So that's one of our functions. Now let's add another which will plot the data f
 #'
 #' Uses the available data to create plots for each rate law order. Useful for checking to see which plot is most linear in order to determine the order of the reaction with respect to that reactant.
 #' @name plot_orders
-#' @param dataset The dataset for which we are converting, which should already have columns added for the first order and second order data. The expected columns are Time, zero_order, first_order, and second_order. 
-#' @return Three plots, one for a zero orderreaction , one for first order, and one for second order.
-#' @examples plot_orders(dataset_here)
+#' @param The dataset for which we are converting, which should already have columns added for the first order and second order data. The expected column labels are Time, zero_order, first_order, and second_order. 
+#' @return Three plots, one for a zero order reaction, one for first order, and one for second order.
+#' @examples plot_orders(dataset)
 
 library("ggplot2")
 library("patchwork")
