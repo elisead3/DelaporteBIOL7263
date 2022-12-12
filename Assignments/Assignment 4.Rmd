@@ -1,0 +1,61 @@
+---
+title: "Assignment 4 Question Answers"
+output: html_document
+date: "2022-09-29"
+---
+
+[Here is the code that I used for this assignment](Assignment 4 Code.R)
+
+**1.  In which year did I observe the most individual birds? How many?**
+
+In 2014, you observed 211,249 birds.
+
+
+**2.  In that year how many different species of birds did I observe?**
+
+210 different species
+
+
+**3. In which state did I most frequently observe Red-winged Blackbirds?**
+
+Missouri (MO)
+
+
+**4. Filter observations for a duration between 5 and 200 minutes. Calculate the mean rate per checklist that I encounter species each year. Specifically, calculate the number of species in each checklist divided by duration and then take the mean for the year.**
+
+ year species_mean  
+   <dbl>        <dbl>  
+ 1  2003       0.0306  
+ 2  2004       0.0627  
+ 3  2009       0.133   
+ 4  2013       0.187   
+ 5  2014       0.304   
+ 6  2015       0.276   
+ 7  2016       0.297   
+ 8  2017       0.384   
+ 9  2018       0.291   
+10  2019       0.253   
+11  2020       0.503   
+12  2021       0.267   
+13  2022       0.442   
+
+  
+**5. Create a tibble that includes the complete observations for the top 10 most frequently observed species. First generate a top 10 list and then use this list to filter all observations. Export this tibble as a .csv file saved to a folder called “Results” folder within your R project and add link to the markdown document.**
+
+Top Ten:  
+ scientific_name           n  
+  <chr>                 <int>  
+1 Cardinalis cardinalis   209  
+2 Zenaida macroura        170  
+3 Cyanocitta cristata     168  
+4 Turdus migratorius      152  
+5 Anas platyrhynchos      139  
+6 Sturnus vulgaris        126  
+7 Branta canadensis        125  
+8 Spinus tristis           122  
+9 Zonotrichia albicollis   116  
+10 Melanerpes carolinus     110  s
+
+And here is the results link:
+[Results](results.csv)
+
