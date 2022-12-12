@@ -32,6 +32,7 @@ I am now a graduate student in Dr. Fakhr's lab at the University of Tulsa, where
 | 8/29/22   | Github Intro & Portfolio | [Assignment 1](Assignments/Assignment1.html)
 | 9/5/22   | Portfolio | [Assignment 2](index.html)
 | 10/13/22   | Regular Expressions | [Assignment 3](Assignments/Assignment3.html)
+| 9/26/22   | Tibbles | [Assignment 4](Assignments/Assignment-4.html)
 | 11/10/22   | Rentrez | [Assignment 10](Assignments/Assignment-10.html)
 | 11/28/22   | R Packages | [R Packages Lesson](RPackagesLesson/Creating-R-Packages-Lesson.html)
 
