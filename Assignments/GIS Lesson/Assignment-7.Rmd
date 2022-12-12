@@ -1,0 +1,21 @@
+---
+title: "GIS"
+output: html_document
+date: "2022-12-12"
+---
+
+
+1. Present a map of your climate niche with your selected locations highlighted.  
+![Map of Climate Niche](climate_plot.png)  
+
+
+2. Present a scatter plot of two of your selected variables for the world as a whole, your climate niche, and your selected points.  
+
+![Plot of Variables](variables_plot.png)  
+
+
+3. Provide a link to the R script you used to calculate you climat eniche and generate the maps and plots.  
+
+[Link to my code](GIS practice.R)  
+
+
