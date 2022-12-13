@@ -9,7 +9,7 @@ output:
 
 ### Educational Experience
 
-Growing up, I was homeschooled by my mom until I reached college. I attended Parkland Community College originally and graduated from there with an Associate in Science with Honors in 2017. I then transferred to the University of Illinois at Urbana-Champaign and graduated with a Bachelor of Science in Molecular and Cellular Biology with Academic Distinction in 2019. 
+I was homeschooled by my mom until I reached college. I attended Parkland Community College originally and graduated from there with an Associate in Science with Honors in 2017. I then transferred to the University of Illinois at Urbana-Champaign and graduated with a Bachelor of Science in Molecular and Cellular Biology with Academic Distinction in 2019. 
 
 During my senior year of college, I was an undergrad chemistry TA, teaching primarily general chemistry labs. After graduating, I continued working as a chemistry TA for an additional three years. I then entered the Biological Sciences Ph.D program at the University of Tulsa in Fall 2022. 
 
@@ -36,6 +36,7 @@ I am now a graduate student in Dr. Fakhr's lab at the University of Tulsa, where
 | 9/26/22   | Tidyr and Merge | [Assignment 5](Assignments/Assignment-5/Assignment-5.html)
 | 10/17/22   | GIS | [Assignment 7](Assignments/GIS Lesson/Assignment-7.html)
 | 10/26/22   | AcuityView | [AcuityView Assignment](Assignments/AcuityView/AcuityView.html)
+| 11/17/22   | Geomorph | [Geomorph Assignment](Assignments/Geomorph/geomorph.html)
 | 11/10/22   | Rentrez | [Rentrez Assignment](Assignments/Assignment-10.html)
 | 11/28/22   | R Packages | [R Packages Lesson](RPackagesLesson/Creating-R-Packages-Lesson.html)
 

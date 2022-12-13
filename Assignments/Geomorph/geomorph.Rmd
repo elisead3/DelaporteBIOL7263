@@ -1,0 +1,23 @@
+---
+title: "Geomorph"
+output: html_document
+date: "2022-12-13"
+---
+
+1. Chose two images of the same animal and compare a morphological feature through landmarking (at least ten landmark points.
+
+[Link to the code](geomorph.R)
+
+The images being analyzed are below. These are flowers from the *Ixora coccinea* plant. Scales included in the images. 
+
+![](flower1.jpg)
+![](flower2.jpg)
+
+
+
+2. Make a plot with either plotAllSpecimens or plotRefToTarget (points, vector, or TPS method)
+
+![](geomorph_plot.png)  
+![](geomorph_plot2.png)
+
+
