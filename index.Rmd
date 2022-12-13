@@ -35,6 +35,7 @@ I am now a graduate student in Dr. Fakhr's lab at the University of Tulsa, where
 | 9/26/22   | Tibbles | [Assignment 4](Assignments/Assignment-4.html)
 | 9/26/22   | Tidyr and Merge | [Assignment 5](Assignments/Assignment-5/Assignment-5.html)
 | 10/17/22   | GIS | [Assignment 7](Assignments/GIS Lesson/Assignment-7.html)
-| 11/10/22   | Rentrez | [Assignment 10](Assignments/Assignment-10.html)
+| 10/26/22   | AcuityView | [AcuityView Assignment](Assignments/AcuityView/AcuityView.html)
+| 11/10/22   | Rentrez | [Rentrez Assignment](Assignments/Assignment-10.html)
 | 11/28/22   | R Packages | [R Packages Lesson](RPackagesLesson/Creating-R-Packages-Lesson.html)
 

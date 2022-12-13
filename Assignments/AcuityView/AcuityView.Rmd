@@ -1,0 +1,54 @@
+---
+title: "AcuityView"
+output: html_document
+date: "2022-12-13"
+---
+
+
+[Link to the code](AcuityView Lesson.R)  
+
+1. View of a cat by a mouse from 1 meter away to 3 meters away
+
+![At 1 m](catmouse1.jpg)  
+
+![At 2 m](catmouse2.jpg)  
+
+![At 3 m](catmouse3.jpg)  
+
+
+2. View of a mouse by an eagle 1 meter away to 3 meters away
+
+![At 1 m](mouse1.jpg)  
+
+![At 2 m](mouse2.jpg)  
+
+![At 3 m](mouse3.jpg)  
+
+
+3. View of a spiderweb by a fly from 1 meter away to 3 meters away
+
+![At 1 m](web1.jpg)  
+
+![At 2 m](web2.jpg)  
+
+![At 3 m](web3.jpg)  
+
+
+4. View of a flower by a bee from 1 meter away to 3 meters away
+
+![At 1 m](flower1.jpg)  
+
+![At 2 m](flower2.jpg)  
+
+![At 3 m](flower3.jpg)  
+
+
+5. View of a goldfish by another goldfish from 1 meter away to 3 meters away
+
+![At 1 m](goldfish1.jpg)  
+
+![At 2 m](goldfish2.jpg)  
+
+![At 3 m](goldfish3.jpg)  
+
+
