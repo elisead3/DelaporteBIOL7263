@@ -1,0 +1,80 @@
+---
+title: "Assignment 6"
+output: html_document
+date: "2022-12-13"
+---
+
+
+1. Using my ebird dataset: First calculate the total number of species seen each month of each year in each location. Then plot the number of species seen each month with the color of the points indicating year and facet this plot by location.
+
+```{r}
+require(tidyverse)
+library(ggplot2) 
+library(ggthemes) #extended themes for ggplot
+library(patchwork) #tools for composing multiple panels
+
+#Import and assign data to variable
+MBT_ebird <- read_csv("MBT_ebird.csv")
+
+# grouping by month, year, and location
+grouped_ebird <- group_by(MBT_ebird, month, year, location)
+
+# Adding a column that added up number of species by scientific name
+num_ea_species <- add_count(grouped_ebird, scientific_name)
+
+# Summarizing to fetch number per month per year per location
+sum_species <- summarize(num_ea_species, n = n())
+
+# create plot of n vs month with the color showing the year
+p1 <- ggplot(data=sum_species) +                                   
+  aes(x=n,y=month,color=year) + 
+  geom_point(size=3) 
+print(p1)
+```
+
+
+
+2. Using the dataset from Assignment #5: Plot a comparison of mass by treatment including the individual observations, the mean, and standard error of the mean. Use point color or shape to indicate the sex.
+
+```{r}
+# On to Question 2 
+
+dataset <- read_csv("clean_data.csv")
+
+p2 <- ggplot(data = dataset, aes(Group, Mass) )+ 
+  geom_jitter(size =2, aes(Group, Mass, color = Gender))+
+  xlab("Treatment") + 
+  ylab("Mass") +
+  stat_summary(fun = mean,  
+               geom = "crossbar", 
+               width = 0.2, 
+               color = "green") +
+  stat_summary(geom = "errorbar",  
+               width = 0.5)+
+  labs(color="Gender") #edit legend title
+
+p2  #output graph
+```
+
+3. Generate a scatter plot of age and mass, indicate treatment with point shape or color, and fit separate regression lines (without CI) to each treatment.
+
+```{r}
+p3 <- ggplot(data = dataset, aes(age, Mass))+ 
+  geom_point(size = 3, aes(age, Mass, shape = Group))+ 
+  xlab("Age")+ 
+  ylab("Mass")+
+  geom_smooth(size = 1, method = lm, # regression line
+              aes(color = Group,  group = Group), #have a line for each treatment
+              se = FALSE)+ #no standard error
+  labs(color="Group")
+
+p3 #output graph
+```
+
+4. Combine the plots from 2 and 3 using patchwork tag each panel with and number or letter and include a title for the overall plot.
+
+```{r}
+p2 / p3
+```
+
+In an Rmarkdown document present your code with the figures generated inline.

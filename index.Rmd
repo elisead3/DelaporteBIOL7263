@@ -34,6 +34,7 @@ I am now a graduate student in Dr. Fakhr's lab at the University of Tulsa, where
 | 9/12/22   | Regular Expressions | [Assignment 3](Assignments/Assignment3.html)
 | 9/26/22   | Tibbles | [Assignment 4](Assignments/Assignment-4.html)
 | 9/26/22   | Tidyr and Merge | [Assignment 5](Assignments/Assignment-5/Assignment-5.html)
+| 10/11/22   | ggplot | [Assignment 6](Assignments/Assignment-6/Assignment-6.html)
 | 10/17/22   | GIS | [Assignment 7](Assignments/GIS Lesson/Assignment-7.html)
 | 10/26/22   | AcuityView | [AcuityView Assignment](Assignments/AcuityView/AcuityView.html)
 | 11/17/22   | Geomorph | [Geomorph Assignment](Assignments/Geomorph/geomorph.html)
