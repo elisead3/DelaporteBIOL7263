@@ -74,7 +74,7 @@ p3 #output graph
 4. Combine the plots from 2 and 3 using patchwork tag each panel with and number or letter and include a title for the overall plot.
 
 ```{r}
-p2 / p3
+p2 / p3 + plot_annotation('Comparison of Mass with Age and Treatment Group', tag_levels = c("A", "B"))
 ```
 
 In an Rmarkdown document present your code with the figures generated inline.
